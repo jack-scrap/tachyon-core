@@ -81,4 +81,20 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	gl.useProgram(prog);
 	gl.drawArrays(gl.LINE_LOOP, 0, 3);
+
+	document.addEventListener("keydown", function(e) {
+		switch (e.keycode) {
+			case 37: // left
+				break;
+
+			case 39: // right
+				break;
+
+			case 40: // down
+				break;
+
+			case 38: // up
+				break;
+		}
+	});
 });
