@@ -25,9 +25,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	// data
 	const vtc = [
-		0.0, 0.5,
-		-0.5, -0.5,
-		0.5, -0.5
+		0.0, 0.32,
+		-0.32, -0.5,
+		0.32, -0.5
 	];
 
 	var vbo = gl.createBuffer();
