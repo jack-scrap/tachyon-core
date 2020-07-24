@@ -80,5 +80,5 @@ document.addEventListener("DOMContentLoaded", function() {
 	gl.clear(gl.COLOR_BUFFER_BIT);
 
 	gl.useProgram(prog);
-	gl.drawArrays(gl.TRIANGLES, 0, 3);
+	gl.drawArrays(gl.LINE_LOOP, 0, 3);
 });
