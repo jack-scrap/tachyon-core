@@ -1,3 +1,42 @@
+class Prog {
+	constructor(name) {
+		// shader
+		this.shadVtxTxt = rd(name + ".vs");
+		this.shadFragTxt = rd(name + ".fs");
+
+		this.shadVtx = gl.createShader(gl.VERTEX_SHADER);
+		gl.shaderSource(this.shadVtx, this.shadVtxTxt);
+
+		this.shadFrag = gl.createShader(gl.FRAGMENT_SHADER);
+		gl.shaderSource(this.shadFrag, this.shadFragTxt);
+
+		gl.compileShader(this.shadVtx);
+		if (!gl.getShaderParameter(this.shadVtx, gl.COMPILE_STATUS)) {
+			console.error('Vertex error: ', gl.getShaderInfoLog(shadVtx));
+		}
+
+		gl.compileShader(this.shadFrag);
+		if (!gl.getShaderParameter(this.shadFrag, gl.COMPILE_STATUS)) {
+			console.error('Fragment error: ', gl.getShaderInfoLog(shadFrag));
+		}
+
+		/// program
+		this.id = gl.createProgram();
+		gl.attachShader(this.id, this.shadVtx);
+		gl.attachShader(this.id, this.shadFrag);
+
+		gl.linkProgram(this.id);
+		if (!gl.getProgramParameter(this.id, gl.LINK_STATUS)) {
+			console.error('Error linking program', gl.getProgramInfoLog(prog));
+		}
+
+		gl.validateProgram(this.id);
+		if (!gl.getProgramParameter(this.id, gl.VALIDATE_STATUS)) {
+			console.error('Error validating program', gl.getProgramInfoLog(prog));
+		}
+	}
+};
+
 document.addEventListener("DOMContentLoaded", function() {
 	// initialize
 	var
@@ -31,40 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			gl.bindBuffer(gl.ARRAY_BUFFER, this.vbo);
 			gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(this.vtc), gl.STATIC_DRAW);
 
-			// shader
-			this.shadVtxTxt = rd("shad.vs");
-			this.shadFragTxt = rd("shad.fs");
-
-			this.shadVtx = gl.createShader(gl.VERTEX_SHADER);
-			gl.shaderSource(this.shadVtx, this.shadVtxTxt);
-
-			this.shadFrag = gl.createShader(gl.FRAGMENT_SHADER);
-			gl.shaderSource(this.shadFrag, this.shadFragTxt);
-
-			gl.compileShader(this.shadVtx);
-			if (!gl.getShaderParameter(this.shadVtx, gl.COMPILE_STATUS)) {
-				console.error('Vertex error: ', gl.getShaderInfoLog(shadVtx));
-			}
-
-			gl.compileShader(this.shadFrag);
-			if (!gl.getShaderParameter(this.shadFrag, gl.COMPILE_STATUS)) {
-				console.error('Fragment error: ', gl.getShaderInfoLog(shadFrag));
-			}
-
-			/// program
-			this.prog = gl.createProgram();
-			gl.attachShader(this.prog, this.shadVtx);
-			gl.attachShader(this.prog, this.shadFrag);
-
-			gl.linkProgram(this.prog);
-			if (!gl.getProgramParameter(this.prog, gl.LINK_STATUS)) {
-				console.error('Error linking program', gl.getProgramInfoLog(prog));
-			}
-
-			gl.validateProgram(this.prog);
-			if (!gl.getProgramParameter(this.prog, gl.VALIDATE_STATUS)) {
-				console.error('Error validating program', gl.getProgramInfoLog(prog));
-			}
+			this.prog = new Prog("shad");
 
 			// matrix
 			this.model = new Float32Array(16);
@@ -78,12 +84,12 @@ document.addEventListener("DOMContentLoaded", function() {
 			mat4.identity(this.id);
 
 			// attribute
-			this.attrPos = gl.getAttribLocation(this.prog, 'pos');
+			this.attrPos = gl.getAttribLocation(this.prog.id, 'pos');
 			gl.vertexAttribPointer(this.attrPos, 2, gl.FLOAT, gl.FALSE, 2 * Float32Array.BYTES_PER_ELEMENT, 0);
 			gl.enableVertexAttribArray(this.attrPos);
 
 			// uniform
-			this.uniModel = gl.getUniformLocation(this.prog, 'model');
+			this.uniModel = gl.getUniformLocation(this.prog.id, 'model');
 
 			this.y = 0;
 			this.ang = 0;
@@ -100,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			gl.clearColor(0, 0, 0, 1.0);
 			gl.clear(gl.COLOR_BUFFER_BIT);
 
-			gl.useProgram(this.prog);
+			gl.useProgram(this.prog.id);
 			gl.drawArrays(gl.LINES, 0, 6);
 		}
 	};
