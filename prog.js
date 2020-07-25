@@ -26,9 +26,9 @@ class Shad {
 }
 
 class Prog {
-	constructor(name) {
-		this.shadVtx = new Shad(name, 0);
-		this.shadFrag = new Shad(name, 1);
+	constructor(nameVtx, nameFrag) {
+		this.shadVtx = new Shad(nameVtx, 0);
+		this.shadFrag = new Shad(nameFrag, 1);
 
 		this.id = gl.createProgram();
 		gl.attachShader(this.id, this.shadVtx.id);
