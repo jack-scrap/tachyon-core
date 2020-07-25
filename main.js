@@ -50,6 +50,17 @@ class Entity {
 	}
 }
 
+class Laser extends Entity {
+	constructor() {
+		super(
+			[
+				0.0, 0.0,
+				0.0, 1.0
+			]
+		);
+	}
+}
+
 document.addEventListener("DOMContentLoaded", function() {
 	// initialize
 	var
@@ -106,12 +117,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			]
 		),
 
-		laser = new Entity(
-			[
-				0.0, 0.0,
-				0.0, 1.0
-			]
-		);
+		laser = new Laser();
 
 	function draw() {
 		gl.clearColor(0, 0, 0, 1.0);
