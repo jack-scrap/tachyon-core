@@ -1,5 +1,8 @@
 class Mesh {
 	constructor(vtc) {
+		this.vao = gl.createVertexArray();
+		gl.bindVertexArray(this.vao);
+
 		// data
 		this.vtc = vtc;
 
@@ -33,7 +36,7 @@ class Mesh {
 	}
 
 	draw() {
-		gl.bindBuffer(gl.ARRAY_BUFFER, this.vbo);
+		gl.bindVertexArray(this.vao);
 		gl.useProgram(this.prog.id);
 
 		mat4.translate(this.trans, this.id, [0, this.y, 0]);
@@ -51,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	// initialize
 	var
 		canvas = document.getElementById('disp');
-		gl = canvas.getContext('webgl');
+		gl = canvas.getContext('webgl2');
 
 	if (!gl) {
 		console.log('Initialization error: WebGL not supported; falling back on experimental');
