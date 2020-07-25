@@ -91,35 +91,35 @@ document.addEventListener("DOMContentLoaded", function() {
 	var uniModel = gl.getUniformLocation(prog, 'model');
 
 	var
-		i1 = 0,
-		i = 0;
+		y = 0,
+		ang = 0;
 	document.addEventListener("keydown", function(e) {
 		switch (e.keyCode) {
 			case 37: // left
 				e.preventDefault();
 
-				i += 0.1;
+				ang += 0.1;
 
 				break;
 
 			case 39: // right
 				e.preventDefault();
 
-				i -= 0.1;
+				ang -= 0.1;
 
 				break;
 
 			case 40: // down
 				e.preventDefault();
 
-				i1 -= 0.1;
+				y -= 0.1;
 
 				break;
 
 			case 38: // up
 				e.preventDefault();
 
-				i1 += 0.1;
+				y += 0.1;
 
 				break;
 		}
@@ -128,8 +128,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	function draw() {
 		gl.uniformMatrix4fv(uniModel, gl.FALSE, model);
 
-		mat4.translate(trans, id, [0, i1, 0]);
-		mat4.rotate(rot, id, i, [0, 0, 1]);
+		mat4.translate(trans, id, [0, y, 0]);
+		mat4.rotate(rot, id, ang, [0, 0, 1]);
 		mat4.mul(model, trans, id);
 		mat4.mul(model, rot, model);
 		gl.uniformMatrix4fv(uniModel, gl.FALSE, model);
