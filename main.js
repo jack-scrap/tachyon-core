@@ -113,6 +113,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 				break;
 		}
+
+		requestAnimationFrame(draw);
 	});
 
 	function draw() {
@@ -130,8 +132,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 		gl.useProgram(prog);
 		gl.drawArrays(gl.LINE_LOOP, 0, 3);
-
-		requestAnimationFrame(draw);
 	}
 	requestAnimationFrame(draw);
 });
