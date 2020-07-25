@@ -93,19 +93,27 @@ document.addEventListener("DOMContentLoaded", function() {
 	document.addEventListener("keydown", function(e) {
 		switch (e.keyCode) {
 			case 37: // left
+				e.preventDefault();
+
 				i += 0.1;
 
 				break;
 
 			case 39: // right
+				e.preventDefault();
+
 				i -= 0.1;
 
 				break;
 
 			case 40: // down
+				e.preventDefault();
+
 				break;
 
 			case 38: // up
+				e.preventDefault();
+
 				break;
 		}
 	});
