@@ -59,6 +59,22 @@ class Laser extends Entity {
 			]
 		);
 	}
+
+	draw() {
+		this.y += 0.1;
+
+		gl.bindVertexArray(this.vao);
+		gl.useProgram(this.prog.id);
+
+		mat4.translate(this.trans, this.id, [0, this.y, 0]);
+		mat4.rotate(this.rot, this.id, this.ang, [0, 0, 1]);
+		mat4.mul(this.model, this.rot, this.id);
+		mat4.mul(this.model, this.trans, this.model);
+		gl.uniformMatrix4fv(this.uniModel, gl.FALSE, this.model);
+
+		// draw
+		gl.drawArrays(gl.LINE_LOOP, 0, this.vtc.length / 2);
+	}
 }
 
 document.addEventListener("DOMContentLoaded", function() {
