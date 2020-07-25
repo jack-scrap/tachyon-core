@@ -52,12 +52,10 @@ class Entity {
 
 class Laser extends Entity {
 	constructor() {
-		super(
-			[
-				0.0, 0.0,
-				0.0, 1.0
-			]
-		);
+		super([
+			0.0, 0.0,
+			0.0, 1.0
+		]);
 	}
 
 	draw() {
