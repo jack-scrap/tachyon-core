@@ -12,7 +12,6 @@ class Mesh {
 
 		// matrix
 		this.model = new Float32Array(16);
-
 		mat4.identity(this.model);
 
 		this.id = new Float32Array(16);
@@ -44,9 +43,6 @@ class Mesh {
 		gl.uniformMatrix4fv(this.uniModel, gl.FALSE, this.model);
 
 		// draw
-		gl.clearColor(0, 0, 0, 1.0);
-		gl.clear(gl.COLOR_BUFFER_BIT);
-
 		gl.drawArrays(gl.LINES, 0, this.vtc.length / 2);
 	}
 }
@@ -115,8 +111,11 @@ document.addEventListener("DOMContentLoaded", function() {
 	);
 
 	function draw() {
+		gl.clearColor(0, 0, 0, 1.0);
+		gl.clear(gl.COLOR_BUFFER_BIT);
+
 		mesh.draw();
-		// mesh1.draw();
+		mesh1.draw();
 
 		requestAnimationFrame(draw);
 	}
