@@ -61,8 +61,6 @@ class Laser extends Entity {
 	}
 
 	draw() {
-		this.y += 0.1;
-
 		gl.bindVertexArray(this.vao);
 		gl.useProgram(this.prog.id);
 
@@ -74,6 +72,8 @@ class Laser extends Entity {
 
 		// draw
 		gl.drawArrays(gl.LINE_LOOP, 0, this.vtc.length / 2);
+
+		this.y += 0.01;
 	}
 }
 
@@ -147,8 +147,12 @@ document.addEventListener("DOMContentLoaded", function() {
 		gl.clear(gl.COLOR_BUFFER_BIT);
 
 		ship.draw();
-		for (let i = 0; i < laser.length; i++) {
-			laser[i].draw();
+		for (let _ of laser) {
+			if (_.y < 1.0) {
+				_.draw();
+			} else {
+				_ = null;
+			}
 		}
 
 		requestAnimationFrame(draw);
