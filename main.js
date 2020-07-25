@@ -73,7 +73,7 @@ class Laser extends Entity {
 		// draw
 		gl.drawArrays(gl.LINE_LOOP, 0, this.vtc.length / 2);
 
-		this.y += 0.01;
+		this.y += 0.1;
 	}
 }
 
