@@ -1,29 +1,38 @@
+class Shad {
+	constructor(name, i) {
+		var ext;
+		if (i) {
+			ext = "fs"
+		} else {
+			ext = "vs";
+		}
+
+		this.shadTxt = rd(name + "." + ext);
+
+		var type;
+		if (i) {
+			type = gl.FRAGMENT_SHADER;
+		} else {
+			type = gl.VERTEX_SHADER;
+		}
+		this.id = gl.createShader(type);
+		gl.shaderSource(this.id, this.shadTxt);
+
+		gl.compileShader(this.id);
+		if (!gl.getShaderParameter(this.id, gl.COMPILE_STATUS)) {
+			console.error('Error: ', gl.getShaderInfoLog(this.id));
+		}
+	}
+}
+
 class Prog {
 	constructor(name) {
-		// shader
-		this.shadVtxTxt = rd(name + ".vs");
-		this.shadFragTxt = rd(name + ".fs");
+		this.shadVtx = new Shad(name, 0);
+		this.shadFrag = new Shad(name, 1);
 
-		this.shadVtx = gl.createShader(gl.VERTEX_SHADER);
-		gl.shaderSource(this.shadVtx, this.shadVtxTxt);
-
-		this.shadFrag = gl.createShader(gl.FRAGMENT_SHADER);
-		gl.shaderSource(this.shadFrag, this.shadFragTxt);
-
-		gl.compileShader(this.shadVtx);
-		if (!gl.getShaderParameter(this.shadVtx, gl.COMPILE_STATUS)) {
-			console.error('Vertex error: ', gl.getShaderInfoLog(shadVtx));
-		}
-
-		gl.compileShader(this.shadFrag);
-		if (!gl.getShaderParameter(this.shadFrag, gl.COMPILE_STATUS)) {
-			console.error('Fragment error: ', gl.getShaderInfoLog(shadFrag));
-		}
-
-		/// program
 		this.id = gl.createProgram();
-		gl.attachShader(this.id, this.shadVtx);
-		gl.attachShader(this.id, this.shadFrag);
+		gl.attachShader(this.id, this.shadVtx.id);
+		gl.attachShader(this.id, this.shadFrag.id);
 
 		gl.linkProgram(this.id);
 		if (!gl.getProgramParameter(this.id, gl.LINK_STATUS)) {
