@@ -129,11 +129,6 @@ document.addEventListener("DOMContentLoaded", function() {
 	ship = new Ship;
 	laser = new Laser;
 
-	function draw() {
-		// ship.draw();
-		laser.draw();
-	}
-
 	document.addEventListener("keydown", function(e) {
 		switch (e.keyCode) {
 			case 37: // left
@@ -164,9 +159,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 				break;
 		}
-
-		requestAnimationFrame(draw);
 	});
 
+	function draw() {
+		// ship.draw();
+		laser.draw();
+
+		requestAnimationFrame(draw);
+	}
 	requestAnimationFrame(draw);
 });
