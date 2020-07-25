@@ -90,10 +90,28 @@ document.addEventListener("DOMContentLoaded", function() {
 	var uniModel = gl.getUniformLocation(prog, 'model');
 
 	var i = 0;
+	document.addEventListener("keydown", function(e) {
+		switch (e.keyCode) {
+			case 37: // left
+				i += 0.1;
+
+				break;
+
+			case 39: // right
+				i -= 0.1;
+
+				break;
+
+			case 40: // down
+				break;
+
+			case 38: // up
+				break;
+		}
+	});
+
 	function draw() {
 		gl.uniformMatrix4fv(uniModel, gl.FALSE, model);
-
-		i++;
 
 		mat4.rotate(rot, id, i, [0, 0, 1]);
 		mat4.mul(model, rot, id);
@@ -109,20 +127,4 @@ document.addEventListener("DOMContentLoaded", function() {
 		requestAnimationFrame(draw);
 	}
 	requestAnimationFrame(draw);
-
-	document.addEventListener("keydown", function(e) {
-		switch (e.keycode) {
-			case 37: // left
-				break;
-
-			case 39: // right
-				break;
-
-			case 40: // down
-				break;
-
-			case 38: // up
-				break;
-		}
-	});
 });
