@@ -50,6 +50,21 @@ class Entity {
 	}
 }
 
+class Aste extends Entity {
+	constructor() {
+		let
+			vtc = [],
+			n = 7,
+			step = (Math.PI * 2) / n;
+		for (let i = 0; i < n; i++) {
+			vtc.push(Math.cos(i * step));
+			vtc.push(Math.sin(i * step));
+		}
+
+		super(vtc);
+	}
+};
+
 class Laser extends Entity {
 	constructor() {
 		super([

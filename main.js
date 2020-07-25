@@ -22,6 +22,8 @@ document.addEventListener("DOMContentLoaded", function() {
 			]
 		),
 
+		aste = new Aste(),
+
 		laser = [];
 
 	document.addEventListener("keydown", function(e) {
@@ -68,6 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		gl.clear(gl.COLOR_BUFFER_BIT);
 
 		ship.draw();
+		aste.draw();
 		for (let _ of laser) {
 			if (_.y < 1.0) {
 				_.draw();
