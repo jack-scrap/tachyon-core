@@ -22,9 +22,12 @@ document.addEventListener("DOMContentLoaded", function() {
 			]
 		),
 
-		aste = new Aste(),
-
 		laser = [];
+
+	var aste = [];
+	for (let i = 0; i < 3; i++) {
+		aste.push(new Aste);
+	}
 
 	document.addEventListener("keydown", function(e) {
 		switch (e.keyCode) {
@@ -70,7 +73,13 @@ document.addEventListener("DOMContentLoaded", function() {
 		gl.clear(gl.COLOR_BUFFER_BIT);
 
 		ship.draw();
-		aste.draw();
+		for (let _ of aste) {
+			if (_.y < 1.0) {
+				_.draw();
+			} else {
+				_ = null;
+			}
+		}
 		for (let _ of laser) {
 			if (_.y < 1.0) {
 				_.draw();
