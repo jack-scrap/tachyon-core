@@ -46,7 +46,7 @@ class Mesh {
 		gl.uniformMatrix4fv(this.uniModel, gl.FALSE, this.model);
 
 		// draw
-		gl.drawArrays(gl.LINES, 0, this.vtc.length / 2);
+		gl.drawArrays(gl.LINE_LOOP, 0, this.vtc.length / 2);
 	}
 }
 
