@@ -68,11 +68,14 @@ class Aste extends Entity {
 			Math.cos(Math.random() * (Math.PI * 2)) / 100,
 			Math.sin(Math.random() * (Math.PI * 2)) / 100
 		];
+		this.spin = Math.random() * (Math.PI * 2) / 100;
 	}
 
 	draw() {
 		gl.bindVertexArray(this.vao);
 		gl.useProgram(this.prog.id);
+
+		this.ang += this.spin;
 
 		mat4.translate(this.trans, this.id, [this.x, this.y, 0]);
 		mat4.rotate(this.rot, this.id, this.ang, [0, 0, 1]);
