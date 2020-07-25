@@ -58,8 +58,8 @@ class Aste extends Entity {
 			n = 7,
 			step = (Math.PI * 2) / n;
 		for (let i = 0; i < n; i++) {
-			vtc.push(Math.cos(i * step));
-			vtc.push(Math.sin(i * step));
+			vtc.push(Math.cos(i * step) + Math.random());
+			vtc.push(Math.sin(i * step) + Math.random());
 		}
 
 		super(vtc);
