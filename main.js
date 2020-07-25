@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	});
 
 	function draw() {
-		gl.clearColor(0, 0, 0, 1.0);
+		gl.clearColor(0, 0.06, 0, 1.0);
 		gl.clear(gl.COLOR_BUFFER_BIT);
 
 		ship.draw();
