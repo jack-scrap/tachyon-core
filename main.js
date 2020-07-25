@@ -130,8 +130,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 		mat4.translate(trans, id, [0, y, 0]);
 		mat4.rotate(rot, id, ang, [0, 0, 1]);
-		mat4.mul(model, trans, id);
-		mat4.mul(model, rot, model);
+		mat4.mul(model, rot, id);
+		mat4.mul(model, trans, model);
 		gl.uniformMatrix4fv(uniModel, gl.FALSE, model);
 
 		// draw
