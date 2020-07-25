@@ -1,4 +1,4 @@
-class Mesh {
+class Entity {
 	constructor(vtc) {
 		this.vao = gl.createVertexArray();
 		gl.bindVertexArray(this.vao);
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	});
 
 	var
-		ship = new Mesh(
+		ship = new Entity(
 			[
 				-1.0, -1.0,
 				1.0, -1.0,
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			]
 		),
 
-		laser = new Mesh(
+		laser = new Entity(
 			[
 				0.0, 0.0,
 				0.0, 1.0
