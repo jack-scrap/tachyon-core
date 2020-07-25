@@ -95,8 +95,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	var
 		ship = new Entity(
 			[
-				-1.0, -1.0,
-				1.0, -1.0,
+				-0.6, -1.0,
+				0.6, -1.0,
 				0.0, 1.0
 			]
 		),
