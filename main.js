@@ -7,6 +7,7 @@ class Mesh {
 		gl.bindBuffer(gl.ARRAY_BUFFER, this.vbo);
 		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(this.vtc), gl.STATIC_DRAW);
 
+		// program
 		this.prog = new Prog("shad");
 
 		// matrix
