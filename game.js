@@ -92,11 +92,15 @@ class Aste extends Entity {
 };
 
 class Laser extends Entity {
-	constructor() {
+	constructor(ship) {
 		super([
 			0.0, 0.0,
 			0.0, 1.0
 		]);
+
+		this.x = ship.x;
+		this.y = ship.y;
+		this.theta = ship.theta;
 	}
 
 	draw() {
