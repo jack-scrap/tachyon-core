@@ -75,12 +75,40 @@ document.addEventListener("DOMContentLoaded", function() {
 	gl.vertexAttribPointer(attrPos, 2, gl.FLOAT, gl.FALSE, 2 * Float32Array.BYTES_PER_ELEMENT, 0);
 	gl.enableVertexAttribArray(attrPos);
 
-	// draw
-	gl.clearColor(0, 0, 0, 1.0);
-	gl.clear(gl.COLOR_BUFFER_BIT);
+	// matrix
+	var model = new Float32Array(16);
 
-	gl.useProgram(prog);
-	gl.drawArrays(gl.LINE_LOOP, 0, 3);
+	mat4.identity(model);
+
+	var
+		id = new Float32Array(16),
+		rot = new Float32Array(16);
+
+	mat4.identity(id);
+
+	// uniform
+	var uniModel = gl.getUniformLocation(prog, 'model');
+
+	var i = 0;
+	function draw() {
+		gl.uniformMatrix4fv(uniModel, gl.FALSE, model);
+
+		i++;
+
+		mat4.rotate(rot, id, i, [0, 0, 1]);
+		mat4.mul(model, rot, id);
+		gl.uniformMatrix4fv(uniModel, gl.FALSE, model);
+
+		// draw
+		gl.clearColor(0, 0, 0, 1.0);
+		gl.clear(gl.COLOR_BUFFER_BIT);
+
+		gl.useProgram(prog);
+		gl.drawArrays(gl.LINE_LOOP, 0, 3);
+
+		requestAnimationFrame(draw);
+	}
+	requestAnimationFrame(draw);
 
 	document.addEventListener("keydown", function(e) {
 		switch (e.keycode) {
