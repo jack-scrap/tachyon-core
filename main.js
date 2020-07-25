@@ -82,6 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	var
 		id = new Float32Array(16),
+		trans = new Float32Array(16),
 		rot = new Float32Array(16);
 
 	mat4.identity(id);
@@ -89,7 +90,9 @@ document.addEventListener("DOMContentLoaded", function() {
 	// uniform
 	var uniModel = gl.getUniformLocation(prog, 'model');
 
-	var i = 0;
+	var
+		i1 = 0,
+		i = 0;
 	document.addEventListener("keydown", function(e) {
 		switch (e.keyCode) {
 			case 37: // left
@@ -109,10 +112,14 @@ document.addEventListener("DOMContentLoaded", function() {
 			case 40: // down
 				e.preventDefault();
 
+				i1 -= 0.1;
+
 				break;
 
 			case 38: // up
 				e.preventDefault();
+
+				i1 += 0.1;
 
 				break;
 		}
@@ -121,8 +128,10 @@ document.addEventListener("DOMContentLoaded", function() {
 	function draw() {
 		gl.uniformMatrix4fv(uniModel, gl.FALSE, model);
 
+		mat4.translate(trans, id, [0, i1, 0]);
 		mat4.rotate(rot, id, i, [0, 0, 1]);
-		mat4.mul(model, rot, id);
+		mat4.mul(model, trans, id);
+		mat4.mul(model, rot, model);
 		gl.uniformMatrix4fv(uniModel, gl.FALSE, model);
 
 		// draw
