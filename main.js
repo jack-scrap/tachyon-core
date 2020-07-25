@@ -44,7 +44,9 @@ class Mesh {
 		gl.clear(gl.COLOR_BUFFER_BIT);
 
 		gl.useProgram(this.prog.id);
-		gl.drawArrays(gl.LINES, 0, 2);
+		gl.drawArrays(gl.LINES, 0, this.vtc.length / 2);
+
+		// console.log(this.vtc.length)
 	}
 }
 
@@ -260,11 +262,21 @@ document.addEventListener("DOMContentLoaded", function() {
 		]
 	);
 
+	mesh1 = new Mesh(
+		[
+			-0.5, -0.5,
+			0.5, -0.5,
+			-0.5, 0.5,
+			0.5, 0.5
+		]
+	);
+
 	function draw() {
 		// ship.draw();
 		// laser.draw();
 
 		mesh.draw();
+		// mesh1.draw();
 
 		requestAnimationFrame(draw);
 	}
