@@ -76,38 +76,6 @@ document.addEventListener("DOMContentLoaded", function() {
 		alert('Initialization error: WebGL not supportd in browser');
 	}
 
-	document.addEventListener("keydown", function(e) {
-		switch (e.keyCode) {
-			case 37: // left
-				e.preventDefault();
-
-				// ship.ang += 0.1;
-
-				break;
-
-			case 39: // right
-				e.preventDefault();
-
-				// ship.ang -= 0.1;
-
-				break;
-
-			case 40: // down
-				e.preventDefault();
-
-				// ship.y -= 0.1;
-
-				break;
-
-			case 38: // up
-				e.preventDefault();
-
-				// ship.y += 0.1;
-
-				break;
-		}
-	});
-
 	var
 		ship = new Entity(
 			[
@@ -118,6 +86,38 @@ document.addEventListener("DOMContentLoaded", function() {
 		),
 
 		laser = new Laser();
+
+	document.addEventListener("keydown", function(e) {
+		switch (e.keyCode) {
+			case 37: // left
+				e.preventDefault();
+
+				ship.ang += 0.1;
+
+				break;
+
+			case 39: // right
+				e.preventDefault();
+
+				ship.ang -= 0.1;
+
+				break;
+
+			case 40: // down
+				e.preventDefault();
+
+				ship.y -= 0.1;
+
+				break;
+
+			case 38: // up
+				e.preventDefault();
+
+				ship.y += 0.1;
+
+				break;
+		}
+	});
 
 	function draw() {
 		gl.clearColor(0, 0, 0, 1.0);
