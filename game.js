@@ -33,7 +33,7 @@ class Entity {
 
 		this.x = 0;
 		this.y = 0;
-		this.ang = 0;
+		this.theta = 0;
 	}
 
 	draw() {
@@ -41,7 +41,7 @@ class Entity {
 		gl.useProgram(this.prog.id);
 
 		mat4.translate(this.trans, this.id, [0, this.y, 0]);
-		mat4.rotate(this.rot, this.id, this.ang, [0, 0, 1]);
+		mat4.rotate(this.rot, this.id, this.theta, [0, 0, 1]);
 		mat4.mul(this.model, this.rot, this.id);
 		mat4.mul(this.model, this.trans, this.model);
 		gl.uniformMatrix4fv(this.uniModel, gl.FALSE, this.model);
@@ -75,10 +75,10 @@ class Aste extends Entity {
 		gl.bindVertexArray(this.vao);
 		gl.useProgram(this.prog.id);
 
-		this.ang += this.spin;
+		this.theta += this.spin;
 
 		mat4.translate(this.trans, this.id, [this.x, this.y, 0]);
-		mat4.rotate(this.rot, this.id, this.ang, [0, 0, 1]);
+		mat4.rotate(this.rot, this.id, this.theta, [0, 0, 1]);
 		mat4.mul(this.model, this.rot, this.id);
 		mat4.mul(this.model, this.trans, this.model);
 		gl.uniformMatrix4fv(this.uniModel, gl.FALSE, this.model);
@@ -104,7 +104,7 @@ class Laser extends Entity {
 		gl.useProgram(this.prog.id);
 
 		mat4.translate(this.trans, this.id, [0, this.y, 0]);
-		mat4.rotate(this.rot, this.id, this.ang, [0, 0, 1]);
+		mat4.rotate(this.rot, this.id, this.theta, [0, 0, 1]);
 		mat4.mul(this.model, this.rot, this.id);
 		mat4.mul(this.model, this.trans, this.model);
 		gl.uniformMatrix4fv(this.uniModel, gl.FALSE, this.model);

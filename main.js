@@ -34,14 +34,14 @@ document.addEventListener("DOMContentLoaded", function() {
 			case 37: // left
 				e.preventDefault();
 
-				ship.ang += 0.1;
+				ship.theta += 0.1;
 
 				break;
 
 			case 39: // right
 				e.preventDefault();
 
-				ship.ang -= 0.1;
+				ship.theta -= 0.1;
 
 				break;
 
