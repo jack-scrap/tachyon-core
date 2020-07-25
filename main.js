@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			]
 		),
 
-		laser = new Laser();
+		laser = [];
 
 	document.addEventListener("keydown", function(e) {
 		switch (e.keyCode) {
@@ -132,6 +132,13 @@ document.addEventListener("DOMContentLoaded", function() {
 				ship.y += 0.1;
 
 				break;
+
+			case 13: // Enter
+				e.preventDefault();
+
+				laser.push(new Laser)
+
+				break;
 		}
 	});
 
@@ -140,7 +147,9 @@ document.addEventListener("DOMContentLoaded", function() {
 		gl.clear(gl.COLOR_BUFFER_BIT);
 
 		ship.draw();
-		laser.draw();
+		for (let i = 0; i < laser.length; i++) {
+			laser[i].draw();
+		}
 
 		requestAnimationFrame(draw);
 	}
