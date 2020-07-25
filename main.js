@@ -97,28 +97,28 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	});
 
-	mesh = new Mesh(
-		[
-			1.0, 0.5,
-			1.0, 1.5
-		]
-	);
+	var
+		ship = new Mesh(
+			[
+				-1.0, -1.0,
+				1.0, -1.0,
+				0.0, 1.0
+			]
+		),
 
-	mesh1 = new Mesh(
-		[
-			-0.5, -0.5,
-			0.5, -0.5,
-			-0.5, 0.5,
-			0.5, 0.5
-		]
-	);
+		laser = new Mesh(
+			[
+				0.0, 0.0,
+				0.0, 1.0
+			]
+		);
 
 	function draw() {
 		gl.clearColor(0, 0, 0, 1.0);
 		gl.clear(gl.COLOR_BUFFER_BIT);
 
-		mesh.draw();
-		mesh1.draw();
+		ship.draw();
+		laser.draw();
 
 		requestAnimationFrame(draw);
 	}
