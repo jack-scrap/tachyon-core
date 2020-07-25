@@ -19,7 +19,12 @@ document.addEventListener("DOMContentLoaded", function() {
 			this.vtc = [
 				0.0, 0.32,
 				-0.32, -0.5,
-				0.32, -0.5
+
+				-0.32, -0.5,
+				0.32, -0.5,
+
+				0.32, -0.5,
+				0.0, 0.32
 			];
 
 			this.vbo = gl.createBuffer();
@@ -96,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			gl.clear(gl.COLOR_BUFFER_BIT);
 
 			gl.useProgram(this.prog);
-			gl.drawArrays(gl.LINE_LOOP, 0, 3);
+			gl.drawArrays(gl.LINES, 0, 6);
 		}
 	};
 
