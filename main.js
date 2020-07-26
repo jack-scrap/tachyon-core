@@ -48,14 +48,18 @@ document.addEventListener("DOMContentLoaded", function() {
 			case 40: // down
 				e.preventDefault();
 
-				ship.y -= 0.1;
+				// ship.y -= 0.1;
+
+				ship.loc[1] -= 0.1;
 
 				break;
 
 			case 38: // up
 				e.preventDefault();
 
-				ship.y += 0.1;
+				// ship.y += 0.1;
+
+				ship.loc[1] += 0.1;
 
 				break;
 

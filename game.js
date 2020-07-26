@@ -30,9 +30,13 @@ class Entity {
 
 		// uniform
 		this.uniModel = gl.getUniformLocation(this.prog.id, 'model');
+		this.uniLoc = gl.getUniformLocation(this.prog.id, 'loc');
 
 		this.x = 0;
 		this.y = 0;
+		this.loc = [
+			0.0, 0.0
+		];
 		this.theta = 0;
 	}
 
@@ -45,6 +49,7 @@ class Entity {
 		mat4.mul(this.model, this.rot, this.id);
 		mat4.mul(this.model, this.trans, this.model);
 		gl.uniformMatrix4fv(this.uniModel, gl.FALSE, this.model);
+		gl.uniform2fv(this.uniLoc, this.loc);
 
 		// draw
 		gl.drawArrays(gl.LINE_LOOP, 0, this.vtc.length / 2);
