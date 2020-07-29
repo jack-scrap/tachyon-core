@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		aste.push(new Aste);
 	}
 
-	var str = new Str("ttachyontachyonachn");
+	var str = new Str("tachyon");
 
 	document.addEventListener("keydown", function(e) {
 		switch (e.keyCode) {
@@ -74,21 +74,21 @@ document.addEventListener("DOMContentLoaded", function() {
 		gl.clearColor(0, 0.06, 0, 1.0);
 		gl.clear(gl.COLOR_BUFFER_BIT);
 
-		// ship.draw();
-		// for (let _ of aste) {
-		// 	if (_.y < 1.0) {
-		// 		_.draw();
-		// 	} else {
-		// 		_ = null;
-		// 	}
-		// }
-		// for (let _ of laser) {
-		// 	if (_.y < 1.0) {
-		// 		_.draw();
-		// 	} else {
-		// 		_ = null;
-		// 	}
-		// }
+		ship.draw();
+		for (let _ of aste) {
+			if (_.y < 1.0) {
+				_.draw();
+			} else {
+				_ = null;
+			}
+		}
+		for (let _ of laser) {
+			if (_.y < 1.0) {
+				_.draw();
+			} else {
+				_ = null;
+			}
+		}
 
 		str.draw();
 
