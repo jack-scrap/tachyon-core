@@ -29,6 +29,8 @@ document.addEventListener("DOMContentLoaded", function() {
 		aste.push(new Aste);
 	}
 
+	var str = new Str("ttachyontachyonachn");
+
 	document.addEventListener("keydown", function(e) {
 		switch (e.keyCode) {
 			case 37: // left
@@ -48,18 +50,14 @@ document.addEventListener("DOMContentLoaded", function() {
 			case 40: // down
 				e.preventDefault();
 
-				// ship.y -= 0.1;
-
-				ship.loc[1] -= 0.1;
+				ship.y -= 0.1;
 
 				break;
 
 			case 38: // up
 				e.preventDefault();
 
-				// ship.y += 0.1;
-
-				ship.loc[1] += 0.1;
+				ship.y += 0.1;
 
 				break;
 
@@ -76,21 +74,23 @@ document.addEventListener("DOMContentLoaded", function() {
 		gl.clearColor(0, 0.06, 0, 1.0);
 		gl.clear(gl.COLOR_BUFFER_BIT);
 
-		ship.draw();
-		for (let _ of aste) {
-			if (_.y < 1.0) {
-				_.draw();
-			} else {
-				_ = null;
-			}
-		}
-		for (let _ of laser) {
-			if (_.y < 1.0) {
-				_.draw();
-			} else {
-				_ = null;
-			}
-		}
+		// ship.draw();
+		// for (let _ of aste) {
+		// 	if (_.y < 1.0) {
+		// 		_.draw();
+		// 	} else {
+		// 		_ = null;
+		// 	}
+		// }
+		// for (let _ of laser) {
+		// 	if (_.y < 1.0) {
+		// 		_.draw();
+		// 	} else {
+		// 		_ = null;
+		// 	}
+		// }
+
+		str.draw();
 
 		requestAnimationFrame(draw);
 	}
