@@ -1,3 +1,5 @@
+var mode = "game";
+
 document.addEventListener("DOMContentLoaded", function() {
 	// initialize
 	var
@@ -13,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		alert('Initialization error: WebGL not supportd in browser');
 	}
 
+	// game
 	var
 		ship = new Entity(
 			[
@@ -30,6 +33,9 @@ document.addEventListener("DOMContentLoaded", function() {
 	}
 
 	var str = new Str("tachyon");
+
+	// HUD
+	var hud = new Str(n);
 
 	document.addEventListener("keydown", function(e) {
 		switch (e.keyCode) {
@@ -74,23 +80,35 @@ document.addEventListener("DOMContentLoaded", function() {
 		gl.clearColor(0, 0.06, 0, 1.0);
 		gl.clear(gl.COLOR_BUFFER_BIT);
 
-		ship.draw();
-		for (let _ of aste) {
-			if (_.y < 1.0) {
-				_.draw();
-			} else {
-				_ = null;
-			}
-		}
-		for (let _ of laser) {
-			if (_.y < 1.0) {
-				_.draw();
-			} else {
-				_ = null;
-			}
-		}
+		switch (mode) {
+			case "menu":
+				str.draw();
 
-		str.draw();
+				break;
+
+			case "game":
+				// HUD
+				hud.draw();
+
+				ship.draw();
+
+				for (let _ of aste) {
+					if (_.y < 1.0) {
+						_.draw();
+					} else {
+						_ = null;
+					}
+				}
+				for (let _ of laser) {
+					if (_.y < 1.0) {
+						_.draw();
+					} else {
+						_ = null;
+					}
+				}
+
+				break;
+		}
 
 		requestAnimationFrame(draw);
 	}
