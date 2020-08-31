@@ -35,6 +35,10 @@ document.addEventListener("DOMContentLoaded", function() {
 	var str = new Str("tachyon");
 
 	// HUD
+	var
+		num = 0,
+		n = num.toString();
+
 	var hud = new Str(n);
 
 	document.addEventListener("keydown", function(e) {
@@ -71,6 +75,11 @@ document.addEventListener("DOMContentLoaded", function() {
 				e.preventDefault();
 
 				laser.push(new Laser(ship))
+
+				num++;
+				n = num.toString();
+
+				hud = new Str(n);
 
 				break;
 		}
