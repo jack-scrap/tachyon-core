@@ -53,6 +53,9 @@ class Entity {
 
 		// draw
 		gl.drawArrays(gl.LINE_LOOP, 0, this.vtc.length / 2);
+
+		gl.bindVertexArray(null);
+		gl.useProgram(null);
 	}
 }
 
