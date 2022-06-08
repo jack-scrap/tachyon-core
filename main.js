@@ -1,6 +1,6 @@
-var mode = "game";
+var mode = 'game';
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener('DOMContentLoaded', function() {
 	// initialize
 	var
 		canvas = document.getElementById('disp');
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		aste.push(new Aste);
 	}
 
-	var str = new Str("tachyon");
+	var str = new Str('tachyon');
 
 	// HUD
 	var
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	var hud = new Str(n);
 
-	document.addEventListener("keydown", function(e) {
+	document.addEventListener('keydown', function(e) {
 		switch (e.keyCode) {
 			case 37: // left
 				e.preventDefault();
@@ -90,12 +90,12 @@ document.addEventListener("DOMContentLoaded", function() {
 		gl.clear(gl.COLOR_BUFFER_BIT);
 
 		switch (mode) {
-			case "menu":
+			case 'menu':
 				str.draw();
 
 				break;
 
-			case "game":
+			case 'game':
 				// HUD
 				hud.draw();
 
