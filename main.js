@@ -63,14 +63,26 @@ document.addEventListener('DOMContentLoaded', function() {
 					case 37: // left
 						e.preventDefault();
 
-						ship.theta += 0.1;
+						ship.prog.use();
+
+						mat4.rotate(ship.model, ship.model, 0.1, [0, 0, 1]);
+
+						gl.uniformMatrix4fv(ship.uniModel, gl.FALSE, ship.model);
+
+						ship.prog.unUse();
 
 						break;
 
 					case 39: // right
 						e.preventDefault();
 
-						ship.theta -= 0.1;
+						ship.prog.use();
+
+						mat4.rotate(ship.model, ship.model, -0.1, [0, 0, 1]);
+
+						gl.uniformMatrix4fv(ship.uniModel, gl.FALSE, ship.model);
+
+						ship.prog.unUse();
 
 						break;
 
