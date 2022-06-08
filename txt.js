@@ -712,7 +712,7 @@ class Char {
 		gl.bindVertexArray(this.vao);
 		gl.useProgram(this.prog.id);
 
-		mat4.translate(this.trans, this.id, [this.x, this.y, 0]);
+		mat4.translate(this.trans, this.id, [this.x, this.y, 0.0]);
 		mat4.rotate(this.rot, this.id, this.theta, [0, 0, 1]);
 		mat4.mul(this.model, this.rot, this.id);
 		mat4.mul(this.model, this.trans, this.model);
