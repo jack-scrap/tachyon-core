@@ -730,7 +730,7 @@ class Str {
 
 		for (let i = 0; i < buff.length; i++) {
 			this.c.push(new Char(
-				buff[i].charCodeAt() - 48,
+				buff[i],
 				-(this.wd / 4) + (i * (1 / 10))
 			));
 		}
