@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		aste.push(new Aste);
 	}
 
-	var
+	const
 				title = new Str('tachyon'),
 				opt = new Str('play');
 
@@ -94,6 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		switch (mode) {
 			case 'menu':
 				title.draw();
+
 				opt.draw();
 
 				break;
