@@ -77,10 +77,26 @@ document.addEventListener('DOMContentLoaded', function() {
 					case 40: // down
 						e.preventDefault();
 
+						ship.prog.use();
+
+						mat4.translate(ship.model, ship.model, [0.0, -0.1, 0.0]);
+
+						gl.uniformMatrix4fv(ship.uniModel, gl.FALSE, ship.model);
+
+						ship.prog.unUse();
+
 						break;
 
 					case 38: // up
 						e.preventDefault();
+
+						ship.prog.use();
+
+						mat4.translate(ship.model, ship.model, [0.0, 0.1, 0.0]);
+
+						gl.uniformMatrix4fv(ship.uniModel, gl.FALSE, ship.model);
+
+						ship.prog.unUse();
 
 						break;
 
