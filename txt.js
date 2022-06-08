@@ -8,7 +8,7 @@ class Char {
 				}
 
 				if (i >= 'a'.charCodeAt(0) && i <= 'z'.charCodeAt(0)) {
-						return (i - 97) + 10;
+						return i - 97 + 10;
 				}
 		}
 
