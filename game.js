@@ -36,7 +36,7 @@ class Entity {
 		this.loc = [
 			0.0, 0.0
 		];
-		this.theta = 0;
+		this.theta = 0.0;
 	}
 
 	draw() {
