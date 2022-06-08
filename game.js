@@ -23,6 +23,8 @@ class Entity {
 
 		mat4.identity(this.id);
 
+		this.prog.use();
+
 		// attribute
 		this.attrPos = gl.getAttribLocation(this.prog.id, 'pos');
 		gl.vertexAttribPointer(this.attrPos, 2, gl.FLOAT, gl.FALSE, 2 * Float32Array.BYTES_PER_ELEMENT, 0);
@@ -30,6 +32,10 @@ class Entity {
 
 		// uniform
 		this.uniModel = gl.getUniformLocation(this.prog.id, 'model');
+
+		gl.uniformMatrix4fv(this.uniModel, gl.FALSE, this.model);
+
+		this.prog.unUse();
 
 		this.x = 0;
 		this.y = 0;
@@ -42,8 +48,6 @@ class Entity {
 	draw() {
 		gl.bindVertexArray(this.vao);
 		this.prog.use();
-
-		gl.uniformMatrix4fv(this.uniModel, gl.FALSE, this.model);
 
 		gl.drawArrays(gl.LINE_LOOP, 0, this.vtc.length / 2);
 
