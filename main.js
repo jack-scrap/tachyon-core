@@ -1,4 +1,4 @@
-var mode = 'game';
+var mode = 'menu';
 
 document.addEventListener('DOMContentLoaded', function() {
 	// initialize

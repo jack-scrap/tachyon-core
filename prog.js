@@ -2,12 +2,12 @@ class Shad {
 	constructor(name, i) {
 		var ext;
 		if (i) {
-			ext = "fs"
+			ext = 'fs'
 		} else {
-			ext = "vs";
+			ext = 'vs';
 		}
 
-		this.shadTxt = rd("res/" + name + "." + ext);
+		this.shadTxt = rd('res/' + name + '.' + ext);
 
 		var type;
 		if (i) {

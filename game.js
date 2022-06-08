@@ -11,7 +11,7 @@ class Entity {
 		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(this.vtc), gl.STATIC_DRAW);
 
 		// program
-		this.prog = new Prog("vec", "green");
+		this.prog = new Prog('vec', 'green');
 
 		// matrix
 		this.model = new Float32Array(16);
