@@ -17,12 +17,6 @@ class Entity {
 		this.model = new Float32Array(16);
 		mat4.identity(this.model);
 
-		this.id = new Float32Array(16);
-		this.trans = new Float32Array(16);
-		this.rot = new Float32Array(16);
-
-		mat4.identity(this.id);
-
 		this.prog.use();
 
 		// attribute
