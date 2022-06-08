@@ -90,9 +90,6 @@ class Aste extends Entity {
 
 		// draw
 		gl.drawArrays(gl.LINE_LOOP, 0, this.vtc.length / 2);
-
-		this.x += this.dir[0];
-		this.y += this.dir[1];
 	}
 };
 
@@ -103,8 +100,6 @@ class Laser extends Entity {
 			0.0, 1.0
 		]);
 
-		this.x = ship.x;
-		this.y = ship.y;
 		this.theta = ship.theta;
 	}
 
