@@ -32,7 +32,9 @@ document.addEventListener('DOMContentLoaded', function() {
 		aste.push(new Aste);
 	}
 
-	var title = new Str('tachyon');
+	var
+				title = new Str('tachyon'),
+				opt = new Str('play');
 
 	// HUD
 	var
@@ -92,6 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		switch (mode) {
 			case 'menu':
 				title.draw();
+				opt.draw();
 
 				break;
 
