@@ -96,8 +96,8 @@ document.addEventListener('DOMContentLoaded', function() {
 			case 'menu':
 				title.draw();
 
-				for (let i = 0; i < opt.length; i++) {
-					opt[i].draw();
+				for (let _ of opt) {
+					_.draw();
 				}
 
 				break;
