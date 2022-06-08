@@ -45,44 +45,61 @@ document.addEventListener('DOMContentLoaded', function() {
 	var hud = new Str(n);
 
 	document.addEventListener('keydown', function(e) {
-		switch (e.keyCode) {
-			case 37: // left
-				e.preventDefault();
+		switch (mode) {
+			case 'menu':
+				switch (e.keyCode) {
+					case 13: // Enter
+						e.preventDefault();
 
-				ship.theta += 0.1;
-
-				break;
-
-			case 39: // right
-				e.preventDefault();
-
-				ship.theta -= 0.1;
+						mode = 'game';
+						
+						break;
+				}
 
 				break;
 
-			case 40: // down
-				e.preventDefault();
+			case 'game':
+				switch (e.keyCode) {
+					case 37: // left
+						e.preventDefault();
 
-				ship.y -= 0.1;
+						ship.theta += 0.1;
 
-				break;
+						break;
 
-			case 38: // up
-				e.preventDefault();
+					case 39: // right
+						e.preventDefault();
 
-				ship.y += 0.1;
+						ship.theta -= 0.1;
 
-				break;
+						break;
 
-			case 13: // Enter
-				e.preventDefault();
+					case 40: // down
+						e.preventDefault();
 
-				laser.push(new Laser(ship))
+						ship.y -= 0.1;
 
-				num++;
-				n = num.toString();
+						break;
 
-				hud = new Str(n);
+					case 38: // up
+						e.preventDefault();
+
+						ship.y += 0.1;
+
+						break;
+
+					case 13: // Enter
+						e.preventDefault();
+
+						laser.push(new Laser(ship))
+
+						num++;
+						n = num.toString();
+
+						hud = new Str(n);
+
+						break;
+				}
 
 				break;
 		}
