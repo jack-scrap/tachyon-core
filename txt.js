@@ -1,5 +1,17 @@
 class Char {
 	constructor(c, x) {
+		function asciiToAlphaNo(c) {
+				let i = c.charCodeAt(0);
+
+				if (i >= '0'.charCodeAt(0) && i <= '9'.charCodeAt(0)) {
+					return i - 30;
+				}
+
+				if (i >= 'a'.charCodeAt(0) && i <= 'z'.charCodeAt(0)) {
+						return (i - 97) + 10;
+				}
+		}
+
 		this.glyph = [
 			[ // 0
 				// left
@@ -664,7 +676,7 @@ class Char {
 		gl.bindVertexArray(this.vao);
 
 		// data
-		this.vtc = this.glyph[c];
+		this.vtc = this.glyph[asciiToAlphaNo(c)];
 
 		this.vbo = gl.createBuffer();
 		gl.bindBuffer(gl.ARRAY_BUFFER, this.vbo);
