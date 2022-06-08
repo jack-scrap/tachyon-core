@@ -17,13 +17,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// game
 	var
-		ship = new Entity(
-			[
-				-0.6, -1.0,
-				0.6, -1.0,
-				0.0, 1.0
-			]
-		),
+		ship = new Entity([
+			-0.6, -1.0,
+			0.6, -1.0,
+			0.0, 1.0
+		]),
 
 		laser = [];
 
