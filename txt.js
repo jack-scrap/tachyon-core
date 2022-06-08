@@ -671,7 +671,7 @@ class Char {
 		}
 	}
 
-	constructor(c, x) {
+	constructor(c, x, y) {
 		this.vao = gl.createVertexArray();
 		gl.bindVertexArray(this.vao);
 
@@ -704,7 +704,7 @@ class Char {
 		this.uniModel = gl.getUniformLocation(this.prog.id, 'model');
 
 		this.x = x;
-		this.y = 0;
+		this.y = y;
 		this.theta = 0;
 	}
 
@@ -723,13 +723,13 @@ class Char {
 };
 
 class Str {
-	constructor(buff) {
+	constructor(buff, y) {
 		this.c = [];
 
 		this.wd = (buff.length + (buff.length - 1)) / 10;
 
 		for (let i = 0; i < buff.length; i++) {
-			this.c.push(new Char(buff[i], -(this.wd / 4) + (i * (1 / 10))));
+			this.c.push(new Char(buff[i], -(this.wd / 4) + (i * (1 / 10)), y));
 		}
 	}
 

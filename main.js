@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 
 	const
-				title = new Str('tachyon'),
-				opt = new Str('play');
+				title = new Str('tachyon', 0),
+				opt = new Str('play', -0.2);
 
 	// HUD
 	var
