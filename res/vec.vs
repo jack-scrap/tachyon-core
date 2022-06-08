@@ -3,7 +3,6 @@
 precision mediump float;
 
 uniform mat4 model;
-uniform vec2 loc;
 
 in vec2 pos;
 
