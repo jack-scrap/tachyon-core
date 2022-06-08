@@ -34,7 +34,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	const
 				title = new Str('tachyon', 0),
-				opt = new Str('play', -0.2);
+				opt = [
+					new Str('play', -0.2),
+					new Str('scoreboard', -(0.2 + 0.1))
+				];
 
 	// HUD
 	var
@@ -95,7 +98,9 @@ document.addEventListener('DOMContentLoaded', function() {
 			case 'menu':
 				title.draw();
 
-				opt.draw();
+				for (let i = 0; i < opt.length; i++) {
+					opt[i].draw();
+				}
 
 				break;
 
