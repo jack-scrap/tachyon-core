@@ -76,22 +76,6 @@ class Aste extends Entity {
 		];
 		this.spin = Math.random() * (Math.PI * 2) / 100;
 	}
-
-	draw() {
-		gl.bindVertexArray(this.vao);
-		gl.useProgram(this.prog.id);
-
-		this.theta += this.spin;
-
-		mat4.translate(this.trans, this.id, [this.x, this.y, 0]);
-		mat4.rotate(this.rot, this.id, this.theta, [0, 0, 1]);
-		mat4.mul(this.model, this.rot, this.id);
-		mat4.mul(this.model, this.trans, this.model);
-		gl.uniformMatrix4fv(this.uniModel, gl.FALSE, this.model);
-
-		// draw
-		gl.drawArrays(gl.LINE_LOOP, 0, this.vtc.length / 2);
-	}
 };
 
 class Laser extends Entity {
@@ -102,21 +86,5 @@ class Laser extends Entity {
 		]);
 
 		this.theta = ship.theta;
-	}
-
-	draw() {
-		gl.bindVertexArray(this.vao);
-		gl.useProgram(this.prog.id);
-
-		mat4.translate(this.trans, this.id, [0, this.y, 0]);
-		mat4.rotate(this.rot, this.id, this.theta, [0, 0, 1]);
-		mat4.mul(this.model, this.rot, this.id);
-		mat4.mul(this.model, this.trans, this.model);
-		gl.uniformMatrix4fv(this.uniModel, gl.FALSE, this.model);
-
-		// draw
-		gl.drawArrays(gl.LINE_LOOP, 0, this.vtc.length / 2);
-
-		this.y += 0.1;
 	}
 }
