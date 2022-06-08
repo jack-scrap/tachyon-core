@@ -43,10 +43,6 @@ class Entity {
 		gl.bindVertexArray(this.vao);
 		this.prog.use();
 
-		mat4.translate(this.trans, this.id, [0, this.y, 0]);
-		mat4.rotate(this.rot, this.id, this.theta, [0, 0, 1]);
-		mat4.mul(this.model, this.rot, this.id);
-		mat4.mul(this.model, this.trans, this.model);
 		gl.uniformMatrix4fv(this.uniModel, gl.FALSE, this.model);
 
 		gl.drawArrays(gl.LINE_LOOP, 0, this.vtc.length / 2);
