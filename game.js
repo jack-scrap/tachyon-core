@@ -41,7 +41,7 @@ class Entity {
 
 	draw() {
 		gl.bindVertexArray(this.vao);
-		gl.useProgram(this.prog.id);
+		this.prog.use();
 
 		mat4.translate(this.trans, this.id, [0, this.y, 0]);
 		mat4.rotate(this.rot, this.id, this.theta, [0, 0, 1]);
@@ -53,7 +53,7 @@ class Entity {
 		gl.drawArrays(gl.LINE_LOOP, 0, this.vtc.length / 2);
 
 		gl.bindVertexArray(null);
-		gl.useProgram(null);
+		this.prog.unUse();
 	}
 }
 

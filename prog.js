@@ -44,4 +44,12 @@ class Prog {
 			console.error('Error validating program', gl.getProgramInfoLog(prog));
 		}
 	}
+
+	use() {
+		gl.useProgram(this.id);
+	}
+
+	unUse() {
+		gl.useProgram(null);
+	}
 };
