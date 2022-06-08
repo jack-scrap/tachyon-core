@@ -7,7 +7,7 @@ class Shad {
 			ext = "vs";
 		}
 
-		this.shadTxt = rd(name + "." + ext);
+		this.shadTxt = rd("res/" + name + "." + ext);
 
 		var type;
 		if (i) {
