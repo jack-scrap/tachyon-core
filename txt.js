@@ -729,10 +729,7 @@ class Str {
 		this.wd = (buff.length + (buff.length - 1)) / 10;
 
 		for (let i = 0; i < buff.length; i++) {
-			this.c.push(new Char(
-				buff[i],
-				-(this.wd / 4) + (i * (1 / 10))
-			));
+			this.c.push(new Char(buff[i], -(this.wd / 4) + (i * (1 / 10))));
 		}
 	}
 
