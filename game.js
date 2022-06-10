@@ -1,5 +1,7 @@
 class Entity {
 	constructor(vtc, loc) {
+		this.loc = loc;
+
 		this.vao = gl.createVertexArray();
 		gl.bindVertexArray(this.vao);
 
@@ -30,8 +32,6 @@ class Entity {
 		gl.uniformMatrix4fv(this.uniModel, gl.FALSE, this.model);
 
 		this.prog.unUse();
-
-		this.loc = loc;
 	}
 
 	draw() {
