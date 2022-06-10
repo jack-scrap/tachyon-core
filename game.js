@@ -33,7 +33,6 @@ class Entity {
 
 		// uniform
 		this.uniModel = gl.getUniformLocation(this.prog.id, 'model');
-
 		gl.uniformMatrix4fv(this.uniModel, gl.FALSE, this.model);
 
 		this.prog.unUse();
