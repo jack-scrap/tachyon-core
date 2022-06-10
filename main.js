@@ -1,4 +1,6 @@
-var mode = 'menu';
+var
+	mode = 'menu',
+	m = 0;
 
 document.addEventListener('DOMContentLoaded', function() {
 	// initialize
@@ -41,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			1.0, 1.0,
 			0.0, 2.0
 		], [
-			-0.8, -0.2
+			-0.8, -(0.2 + (m * 0.1))
 		]);
 
 	// HUD
@@ -55,6 +57,24 @@ document.addEventListener('DOMContentLoaded', function() {
 		switch (mode) {
 			case 'menu':
 				switch (e.keyCode) {
+					case 40: // down
+						e.preventDefault();
+
+						if (m < 1) {
+							m++;
+						}
+
+						break;
+
+					case 38: // up
+						e.preventDefault();
+
+						if (m) {
+							m--;
+						}
+
+						break;
+
 					case 13: // Enter
 						e.preventDefault();
 
