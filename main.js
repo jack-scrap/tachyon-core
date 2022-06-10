@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function() {
 					case 13: // Enter
 						e.preventDefault();
 
-						laser.push(new Laser(ship))
+						laser.push(new Laser())
 
 						num++;
 

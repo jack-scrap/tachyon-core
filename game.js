@@ -71,7 +71,7 @@ class Aste extends Entity {
 };
 
 class Laser extends Entity {
-	constructor(ship) {
+	constructor() {
 		super([
 			0.0, 0.0,
 			0.0, 1.0
