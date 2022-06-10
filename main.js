@@ -96,7 +96,17 @@ document.addEventListener('DOMContentLoaded', function() {
 					case 13: // Enter
 						e.preventDefault();
 
-						mode = 'game';
+						switch (m) {
+							case 0:
+								mode = 'game';
+
+								break;
+
+							case 1:
+								mode = 'score';
+
+								break;
+						}
 
 						break;
 				}
