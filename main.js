@@ -64,6 +64,15 @@ document.addEventListener('DOMContentLoaded', function() {
 							m++;
 						}
 
+						mat4.identity(curs.model);
+						mat4.translate(curs.model, curs.model, [-0.8, -(0.2 + (m * 0.1)), 0.0]);
+
+						curs.prog.use();
+
+						gl.uniformMatrix4fv(curs.uniModel, gl.FALSE, curs.model);
+
+						curs.prog.unUse();
+
 						break;
 
 					case 38: // up
@@ -72,6 +81,15 @@ document.addEventListener('DOMContentLoaded', function() {
 						if (m) {
 							m--;
 						}
+
+						mat4.identity(curs.model);
+						mat4.translate(curs.model, curs.model, [-0.8, -(0.2 + (m * 0.1)), 0.0]);
+
+						curs.prog.use();
+
+						gl.uniformMatrix4fv(curs.uniModel, gl.FALSE, curs.model);
+
+						curs.prog.unUse();
 
 						break;
 
