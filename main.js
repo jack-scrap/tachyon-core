@@ -203,6 +203,18 @@ document.addEventListener('DOMContentLoaded', function() {
 				// HUD
 				hud.draw();
 
+				mat4.translate(ship.model, ship.model, [
+					0.0,
+					0.003,
+					0.0
+				]);
+
+				ship.prog.use();
+
+				gl.uniformMatrix4fv(ship.uniModel, gl.FALSE, ship.model);
+
+				ship.prog.unUse();
+
 				ship.draw();
 
 				for (let _ of aste) {
