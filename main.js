@@ -221,6 +221,18 @@ document.addEventListener('DOMContentLoaded', function() {
 					_.draw();
 				}
 				for (let _ of laser) {
+					mat4.translate(_.model, _.model, [
+						0.0,
+						0.03,
+						0.0
+					]);
+
+					_.prog.use();
+
+					gl.uniformMatrix4fv(_.uniModel, gl.FALSE, _.model);
+
+					_.prog.unUse();
+
 					_.draw();
 				}
 
