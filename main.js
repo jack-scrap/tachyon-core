@@ -170,7 +170,17 @@ document.addEventListener('DOMContentLoaded', function() {
 					case 13: // Enter
 						e.preventDefault();
 
-						laser.push(new Laser())
+						inst = new Laser()
+
+						mat4.copy(inst.model, ship.model)
+
+						inst.prog.use();
+
+						gl.uniformMatrix4fv(inst.uniModel, gl.FALSE, inst.model);
+
+						inst.prog.unUse();
+
+						laser.push(inst)
 
 						num++;
 
