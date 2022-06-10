@@ -31,16 +31,16 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 
 	const
-				title = new Str('tachyon', 0),
-				opt = [
-					new Str('play', -0.2),
-					new Str('scoreboard', -(0.2 + 0.1))
-				],
-				curs = new Entity([
-					0.0, 0.0,
-					1.0, 1.0,
-					0.0, 2.0
-				]);
+	title = new Str('tachyon', 0),
+		opt = [
+			new Str('play', -0.2),
+			new Str('scoreboard', -(0.2 + 0.1))
+		],
+		curs = new Entity([
+			0.0, 0.0,
+			1.0, 1.0,
+			0.0, 2.0
+		]);
 
 	// HUD
 	var
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
 						e.preventDefault();
 
 						mode = 'game';
-						
+
 						break;
 				}
 
