@@ -218,18 +218,10 @@ document.addEventListener('DOMContentLoaded', function() {
 				ship.draw();
 
 				for (let _ of aste) {
-					if (_.y < 1.0) {
-						_.draw();
-					} else {
-						_ = null;
-					}
+					_.draw();
 				}
 				for (let _ of laser) {
-					if (_.y < 1.0) {
-						_.draw();
-					} else {
-						_ = null;
-					}
+					_.draw();
 				}
 
 				break;
