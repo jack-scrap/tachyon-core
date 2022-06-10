@@ -719,6 +719,9 @@ class Char {
 		gl.uniformMatrix4fv(this.uniModel, gl.FALSE, this.model);
 
 		gl.drawArrays(gl.LINES, 0, this.vtc.length / 2);
+
+		gl.bindVertexArray(null);
+		this.prog.unUse();
 	}
 };
 
