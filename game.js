@@ -36,7 +36,6 @@ class Entity {
 		this.loc = [
 			0.0, 0.0
 		];
-		this.theta = 0.0;
 	}
 
 	draw() {
@@ -77,7 +76,5 @@ class Laser extends Entity {
 			0.0, 0.0,
 			0.0, 1.0
 		]);
-
-		this.theta = ship.theta;
 	}
 }
