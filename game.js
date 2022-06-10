@@ -1,5 +1,8 @@
 class Entity {
-	constructor(vtc, loc) {
+	constructor(vtc, loc = [
+		0.0,
+		0.0
+	]) {
 		this.loc = loc;
 
 		this.vao = gl.createVertexArray();
