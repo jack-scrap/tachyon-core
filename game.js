@@ -22,6 +22,8 @@ class Entity {
 		this.model = new Float32Array(16);
 		mat4.identity(this.model);
 
+		mat4.translate(this.model, this.model, [this.loc[0], 0.0, this.loc[1]]);
+
 		this.prog.use();
 
 		// attribute
