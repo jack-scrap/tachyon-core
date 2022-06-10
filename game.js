@@ -1,5 +1,5 @@
 class Entity {
-	constructor(vtc) {
+	constructor(vtc, loc) {
 		this.vao = gl.createVertexArray();
 		gl.bindVertexArray(this.vao);
 
@@ -31,11 +31,7 @@ class Entity {
 
 		this.prog.unUse();
 
-		this.x = 0;
-		this.y = 0;
-		this.loc = [
-			0.0, 0.0
-		];
+		this.loc = loc;
 	}
 
 	draw() {
