@@ -63,8 +63,8 @@ class Aste extends Entity {
 		super(vtc);
 
 		this.dir = [
-			Math.cos(Math.random() * (Math.PI * 2)) / 100,
-			Math.sin(Math.random() * (Math.PI * 2)) / 100
+			Math.cos(Math.random() * Math.PI * 2) / 100,
+			Math.sin(Math.random() * Math.PI * 2) / 100
 		];
 		this.spin = Math.random() * (Math.PI * 2) / 100;
 	}
