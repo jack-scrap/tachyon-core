@@ -118,9 +118,8 @@ document.addEventListener('DOMContentLoaded', function() {
 						laser.push(new Laser(ship))
 
 						num++;
-						n = num.toString();
 
-						hud = new Str(n);
+						hud = new Str(num.toString());
 
 						break;
 				}
