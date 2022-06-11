@@ -726,7 +726,7 @@ class Char {
 };
 
 class Str {
-	constructor(buff, y) {
+	constructor(buff, y = 0.0) {
 		this.c = [];
 
 		this.wd = (buff.length + (buff.length - 1)) / 10;
