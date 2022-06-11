@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		laser = [];
 
 	var aste = [];
-	for (let i = 0; i < 3; i++) {
+	for (let i = 0; i < Math.floor(Math.random() * 10); i++) {
 		let inst = new Aste();
 
 		mat4.rotate(inst.model, inst.model, Math.floor(Math.random() * Math.PI * 2), [0, 0, 1]);
