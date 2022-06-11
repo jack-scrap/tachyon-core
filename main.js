@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 
 	const
-	title = new Str('tachyon', 0),
+		title = new Str('tachyon', 0),
 		opt = [
 			new Str('play', -0.2),
 			new Str('scoreboard', -(0.2 + 0.1))
