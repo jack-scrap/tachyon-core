@@ -226,6 +226,18 @@ document.addEventListener('DOMContentLoaded', function() {
 				ship.draw();
 
 				for (let _ of aste) {
+					mat4.translate(_.model, _.model, [
+						0.0,
+						0.001,
+						0.0
+					]);
+
+					_.prog.use();
+
+					gl.uniformMatrix4fv(_.uniModel, gl.FALSE, _.model);
+
+					_.prog.unUse();
+
 					_.draw();
 				}
 				for (let _ of laser) {
