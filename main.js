@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		num = 0,
 		n = num.toString();
 
-	var hud = new Str(n);
+	var hud = new Str('asdf');
 
 	document.addEventListener('keydown', function(e) {
 		switch (mode) {
@@ -143,14 +143,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 					case 40: // down
 						e.preventDefault();
-
-						ship.prog.use();
-
-						mat4.translate(ship.model, ship.model, [0.0, -0.1, 0.0]);
-
-						gl.uniformMatrix4fv(ship.uniModel, gl.FALSE, ship.model);
-
-						ship.prog.unUse();
 
 						break;
 
