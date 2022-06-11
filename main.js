@@ -25,7 +25,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	var aste = [];
 	for (let i = 0; i < 3; i++) {
-		aste.push(new Aste());
+		let inst = new Aste();
+
+		mat4.rotate(inst.model, inst.model, Math.floor(Math.random() * Math.PI * 2), [0, 0, 1]);
+
+		inst.prog.use();
+
+		gl.uniformMatrix4fv(inst.uniModel, gl.FALSE, inst.model);
+
+		inst.prog.unUse();
+
+		aste.push(inst);
 	}
 
 	const
