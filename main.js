@@ -145,13 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
 					case 38: // up
 						e.preventDefault();
 
-						mat4.translate(ship.model, ship.model, [0.0, 0.1, 0.0]);
-
-						ship.prog.use();
-
-						gl.uniformMatrix4fv(ship.uniModel, gl.FALSE, ship.model);
-
-						ship.prog.unUse();
+						ship.speed = 0.015;
 
 						break;
 
