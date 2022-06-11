@@ -50,6 +50,8 @@ class Entity {
 }
 
 class Ship extends Entity {
+	speed = 0.003;
+
 	constructor() {
 		super([
 			-0.6, -1.0,

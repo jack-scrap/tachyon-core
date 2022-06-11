@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 				mat4.translate(ship.model, ship.model, [
 					0.0,
-					0.003,
+					ship.speed,
 					0.0
 				]);
 
