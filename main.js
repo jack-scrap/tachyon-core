@@ -175,6 +175,22 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 	});
 
+	document.addEventListener('keyup', function(e) {
+		switch (mode) {
+			case 'game':
+				switch (e.keyCode) {
+					case 38: // up
+						e.preventDefault();
+
+						ship.speed = 0.003;
+
+						break;
+				}
+
+				break;
+		}
+	});
+
 	function draw() {
 		gl.clearColor(0, 0.06, 0, 1.0);
 		gl.clear(gl.COLOR_BUFFER_BIT);
