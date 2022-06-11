@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	var aste = [];
 	for (let i = 0; i < 3; i++) {
-		aste.push(new Aste);
+		aste.push(new Aste());
 	}
 
 	const
