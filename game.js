@@ -77,4 +77,4 @@ class Laser extends Entity {
 			0.0, 1.0
 		]);
 	}
-}
+};
