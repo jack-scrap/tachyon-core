@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		num = 0,
 		n = num.toString();
 
-	var hud = new Str('asdf');
+	var hud = new Str(n, 0);
 
 	document.addEventListener('keydown', function(e) {
 		switch (mode) {
