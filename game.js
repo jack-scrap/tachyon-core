@@ -49,6 +49,16 @@ class Entity {
 	}
 }
 
+class Ship extends Entity {
+	constructor() {
+		super([
+			-0.6, -1.0,
+			0.6, -1.0,
+			0.0, 1.0
+		]);
+	}
+}
+
 class Aste extends Entity {
 	constructor() {
 		let
