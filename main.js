@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 
 	if (!gl) {
-		alert('Initialization error: WebGL not supportd in browser');
+		console.log('Initialization error: WebGL not supportd in browser');
 	}
 
 	// game
