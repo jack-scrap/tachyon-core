@@ -176,8 +176,9 @@ document.addEventListener('DOMContentLoaded', function() {
 						laser.push(inst)
 
 						num++;
+						n = num.toString();
 
-						hud = new Str(num.toString(), -0.8, 0.8);
+						hud = new Str(n, -0.8, 0.8);
 
 						break;
 				}
