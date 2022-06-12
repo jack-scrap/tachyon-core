@@ -671,7 +671,7 @@ class Char {
 		}
 	}
 
-	constructor(c, x, y) {
+	constructor(c, x = 0.0, y = 0.0) {
 		this.vao = gl.createVertexArray();
 		gl.bindVertexArray(this.vao);
 
