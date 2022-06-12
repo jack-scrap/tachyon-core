@@ -726,13 +726,13 @@ class Char {
 };
 
 class Str {
-	constructor(buff, y = 0.0) {
+	constructor(buff, x = 0.0, y = 0.0) {
 		this.c = [];
 
 		this.wd = (buff.length + (buff.length - 1)) / 10;
 
 		for (let i = 0; i < buff.length; i++) {
-			this.c.push(new Char(buff[i], -(this.wd / 4) + (i * (1 / 10)), y));
+			this.c.push(new Char(buff[i], x - (this.wd / 4) + (i * (1 / 10)), y));
 		}
 	}
 

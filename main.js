@@ -40,10 +40,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 
 	const
-		title = new Str('tachyon', 0.0),
+		title = new Str('tachyon', 0.0, 0.0),
 		opt = [
-			new Str('play', -0.2),
-			new Str('scoreboard', -(0.2 + 0.1))
+			new Str('play', 0.0, -0.2),
+			new Str('scoreboard', 0.0, -(0.2 + 0.1))
 		],
 		curs = new Entity([
 			0.0, 0.0,
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		num = 0,
 		n = num.toString();
 
-	var hud = new Str(n, 0.0);
+	var hud = new Str(n, 0.0, 0.0);
 
 	document.addEventListener('keydown', function(e) {
 		switch (mode) {
