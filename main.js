@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	for (let i = 0; i < Math.floor(Math.random() * 10); i++) {
 		let inst = new Aste();
 
-		mat4.rotate(inst.model, inst.model, Math.floor(Math.random() * Math.PI * 2), [0, 0, 1]);
+		mat4.rotate(inst.model, inst.model, Math.random() * Math.PI * 2, [0, 0, 1]);
 		mat4.translate(inst.model, inst.model, [Math.random() * (1.0 - -1.0) + -1.0, Math.random() * (1.0 - -1.0) + -1.0, Math.random() * (1.0 - -1.0) + -1.0]);
 
 		inst.prog.use();
