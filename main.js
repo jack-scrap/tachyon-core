@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
 					case 40: // down
 						e.preventDefault();
 
-						if (m < 1) {
+						if (m < opt.length - 1) {
 							m++;
 						}
 
