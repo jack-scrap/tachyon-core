@@ -54,11 +54,9 @@ document.addEventListener('DOMContentLoaded', function() {
 		]);
 
 	// HUD
-	var
-		num = 0,
-		n = num.toString();
+	var n = 0;
 
-	var hud = new Str(n, -0.8, 0.8);
+	var hud = new Str(n.toString(), -0.8, 0.8);
 
 	document.addEventListener('keydown', function(e) {
 		switch (mode) {
@@ -175,10 +173,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 						laser.push(inst)
 
-						num++;
-						n = num.toString();
+						n++;
 
-						hud = new Str(n, -0.8, 0.8);
+						hud = new Str(n.toString(), -0.8, 0.8);
 
 						break;
 				}
