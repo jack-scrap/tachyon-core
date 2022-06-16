@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
 					case 38: // up
 						e.preventDefault();
 
-						ship.speed = 0.015;
+						ship.speed = 0.01;
 
 						break;
 
