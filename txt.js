@@ -663,7 +663,7 @@ class Char {
 		let i = c.charCodeAt(0);
 
 		if (i >= '0'.charCodeAt(0) && i <= '9'.charCodeAt(0)) {
-			return i - 30;
+			return i - 48;
 		}
 
 		if (i >= 'a'.charCodeAt(0) && i <= 'z'.charCodeAt(0)) {
