@@ -3,17 +3,17 @@ class Entity {
 		0.0,
 		0.0
 	]) {
-		this.loc = loc;
+		this._loc = loc;
 
-		this.vao = gl.createVertexArray();
-		gl.bindVertexArray(this.vao);
+		this._vao = gl.createVertexArray();
+		gl.bindVertexArray(this._vao);
 
 		// data
-		this.vtc = vtc;
+		this._vtc = vtc;
 
-		this.vbo = gl.createBuffer();
-		gl.bindBuffer(gl.ARRAY_BUFFER, this.vbo);
-		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(this.vtc), gl.STATIC_DRAW);
+		this._vbo = gl.createBuffer();
+		gl.bindBuffer(gl.ARRAY_BUFFER, this._vbo);
+		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(this._vtc), gl.STATIC_DRAW);
 
 		// program
 		this.prog = new Prog('vec', 'green');
@@ -22,14 +22,14 @@ class Entity {
 		this.model = new Float32Array(16);
 		mat4.identity(this.model);
 
-		mat4.translate(this.model, this.model, [this.loc[0], this.loc[1], 0]);
+		mat4.translate(this.model, this.model, [this._loc[0], this._loc[1], 0]);
 
 		this.prog.use();
 
 		// attribute
-		this.attrPos = gl.getAttribLocation(this.prog.id, 'pos');
-		gl.vertexAttribPointer(this.attrPos, 2, gl.FLOAT, gl.FALSE, 2 * Float32Array.BYTES_PER_ELEMENT, 0);
-		gl.enableVertexAttribArray(this.attrPos);
+		this._attrPos = gl.getAttribLocation(this.prog.id, 'pos');
+		gl.vertexAttribPointer(this._attrPos, 2, gl.FLOAT, gl.FALSE, 2 * Float32Array.BYTES_PER_ELEMENT, 0);
+		gl.enableVertexAttribArray(this._attrPos);
 
 		// uniform
 		this.uniModel = gl.getUniformLocation(this.prog.id, 'model');
@@ -39,10 +39,10 @@ class Entity {
 	}
 
 	draw() {
-		gl.bindVertexArray(this.vao);
+		gl.bindVertexArray(this._vao);
 		this.prog.use();
 
-		gl.drawArrays(gl.LINE_LOOP, 0, this.vtc.length / 2);
+		gl.drawArrays(gl.LINE_LOOP, 0, this._vtc.length / 2);
 
 		gl.bindVertexArray(null);
 		this.prog.unUse();
@@ -74,11 +74,11 @@ class Aste extends Entity {
 
 		super(vtc);
 
-		this.dir = [
+		this._dir = [
 			Math.cos(Math.random() * Math.PI * 2) / 100,
 			Math.sin(Math.random() * Math.PI * 2) / 100
 		];
-		this.spin = Math.random() * (Math.PI * 2) / 100;
+		this._spin = Math.random() * (Math.PI * 2) / 100;
 	}
 };
 
