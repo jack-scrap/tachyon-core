@@ -3,8 +3,6 @@ class Entity {
 		0.0,
 		0.0
 	]) {
-		this._loc = loc;
-
 		this._vao = gl.createVertexArray();
 		gl.bindVertexArray(this._vao);
 
@@ -22,7 +20,7 @@ class Entity {
 		this.model = new Float32Array(16);
 		mat4.identity(this.model);
 
-		mat4.translate(this.model, this.model, [this._loc[0], this._loc[1], 0]);
+		mat4.translate(this.model, this.model, [loc[0], loc[1], 0]);
 
 		this.prog.use();
 
